@@ -1,0 +1,49 @@
+<%- include('header') %>
+
+    <div class="container">
+
+        <div class="form-container">
+
+            <h1 class="heading">Add New Book</h1>
+
+            <form action="/add-book" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <input type="text" name="title" placeholder="Book Title" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="author" placeholder="Author Name" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="category" placeholder="Category" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="price" placeholder="Price" required>
+                </div>
+
+                <div class="form-group">
+                    <input type="number" name="quantity" placeholder="Quantity" required>
+                </div>
+
+                <div class="form-group">
+                    <textarea name="description" placeholder="Description"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <input type="file" name="image" required>
+                </div>
+
+                <button class="btn btn-primary">
+                    Add Book
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <%- include('footer') %>

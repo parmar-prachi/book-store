@@ -1,0 +1,63 @@
+<%- include('header') %>
+
+    <div class="container">
+
+        <h1 class="heading">All Books</h1>
+
+        <div class="table-container">
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% books.forEach(book=> { %>
+                        <tr>
+                            <td class="cell-image">
+                                <img src="/uploads/<%= book.image %>" alt="<%= book.title %>">
+                            </td>
+                            <td class="cell-title">
+                                <%= book.title %>
+                            </td>
+                            <td>
+                                <%= book.author %>
+                            </td>
+                            <td>
+                                <span class="badge-category">
+                                    <%= book.category %>
+                                </span>
+                            </td>
+                            <td class="cell-price">
+                                ₹<%= book.price %>
+                            </td>
+                            <td>
+                                <%= book.quantity %>
+                            </td>
+                            <td class="cell-actions">
+                                <a href="/edit-book/<%= book._id %>" class="btn btn-primary">
+                                    Edit
+                                </a>
+
+                                <form action="/delete-book/<%= book._id %>?_method=DELETE" method="POST"
+                                    style="display: inline-block;">
+                                    <button class="btn btn-danger">
+                                        Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <%- include('footer') %>
